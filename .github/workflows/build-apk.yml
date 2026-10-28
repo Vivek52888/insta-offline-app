@@ -17,11 +17,13 @@ jobs:
       with:
         node-version: 20
 
-    - name: Install Dependencies & Setup Capacitor
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Add Android Platform
       run: |
-        npm install
-        npm install @capacitor/android @capacitor/core
-        npx cap sync android || npx cap add android
+        npx cap add android || true
+        npx cap sync android
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -32,7 +34,7 @@ jobs:
     - name: Build Debug APK
       run: |
         cd android
-        chmod +x gradlew
+        chmod +x ./gradlew
         ./gradlew assembleDebug
 
     - name: Upload APK Artifact
