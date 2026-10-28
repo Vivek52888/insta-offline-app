@@ -1,0 +1,6 @@
+{
+  "appId": "com.offline.insta",
+  "appName": "InstaOffline",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Offline Reels Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar (Tabs switch karne ke liye) -->
+    <div class="nav-bar">
+        <button id="tab-setup" class="active" onclick="switchTab('setup')">⚙️ Setup & Fetch</button>
+        <button id="tab-player" onclick="switchTab('player')">🎬 Watch Offline (<span id="saved-count">0</span>)</button>
+    </div>
+
+    <!-- SCREEN 1: Setup & Fetching Control Panel -->
+    <div id="setup-screen" class="screen active">
+        <div class="card">
+            <h2>Instagram Offline Loader</h2>
+            <p class="sub-text">Apne account se reels background mein save karein</p>
+
+            <!-- Step A: Instagram Account Link -->
+            <button id="btn-login" class="btn secondary-btn">🔗 Connect Instagram Account</button>
+
+            <hr class="divider">
+
+            <!-- Step B: Quantity Input -->
+            <label for="reel-count">Kitni Reels download karni hain?</label>
+            <input type="number" id="reel-count" placeholder="e.g., 10, 25, 50" value="10" min="1" max="100">
+
+            <!-- Step C: Start Background Process -->
+            <button id="btn-start" class="btn primary-btn">🚀 Start Background Fetch</button>
+
+            <!-- Progress Status Box -->
+            <div id="status-box" class="status-box">
+                <p id="status-text">Status: Ready</p>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Step D: Clear Storage Button -->
+            <button id="btn-clear" class="btn danger-btn">🗑️ Clear Saved Reels</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: Instagram Style Offline Reels Player -->
+    <div id="player-screen" class="screen">
+        <div id="reels-container" class="reels-container">
+            <!-- Saved videos yahan automatically aayengi -->
+            <div class="empty-msg">Abhi koi reel save nahi hai. Pehle Fetch karein!</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
